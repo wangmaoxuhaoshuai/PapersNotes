@@ -68,6 +68,13 @@ BiFPN使用了backbone的3到7层作为输入，并且重复使用自底向上�
 根据上面的方法，做出了一下的EfficientDetD0-D7的配置
 ![avatar](Pictures/ScalingConfigsForEfficientD0-D7.png)
 
+其中当Φ≧7的时候，内存会不够除非改变batch size或者其他的设置，但是这样就不能进行对照比较了。
+因此从D6增长到D7的配置中，仅仅增大了输入图片的尺寸，保持其他维度不变。
+
+以下结果，是在单模型单尺度设置下并且没有在测试时增强，在COCO2017检测数据集的EfficientDet的表现，
+同时比较了EfficientDet和其他目标检测模型。
+![avatar](Pictures/EfficientDetPerformanceOnCOCO.png)
+
 
 
 
