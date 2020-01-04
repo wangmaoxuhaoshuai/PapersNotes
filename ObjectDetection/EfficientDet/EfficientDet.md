@@ -58,8 +58,17 @@ BiFPN使用了backbone的3到7层作为输入，并且重复使用自底向上�
 - BiFPN network：BiFPN的宽度Width（也就是通道数）以指数增长的方式增加，深度Depth以线性方式来增加
 ![avatar](Pictures/BiFPN_compound_equation.png)
 
-- Box/Class prediction network：固定宽度Width和BiFPN相同，深度Depth以线性方式增加
+- Box/Class prediction network：始终保持宽度Width和BiFPN的Width相同，深度Depth以线性方式增加
 ![avatar](Pictures/boxclass_equation.png)
+
+- 输入图片分辨率：因为backbone的3-7层特征被用于BiFPN，所以输入图片大小必须为2的7次方（128）的倍数，
+因此分辨率也是以线性方式增长
+![avatar](Pictures/resolution_equation.png)
+
+根据上面的方法，做出了一下的EfficientDetD0-D7的配置
+![avatar](Pictures/ScalingConfigsForEfficientD0-D7.png)
+
+
 
 
 
