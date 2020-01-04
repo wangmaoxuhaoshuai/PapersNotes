@@ -73,6 +73,7 @@ BiFPN使用了backbone的3到7层作为输入，并且重复使用自底向上�
 
 以下结果，是在单模型单尺度设置下并且没有在测试时增强，在COCO2017检测数据集的EfficientDet的表现，
 同时比较了EfficientDet和其他目标检测模型。
+
 ![avatar](Pictures/EfficientDetPerformanceOnCOCO.png)
 
 
