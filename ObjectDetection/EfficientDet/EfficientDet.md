@@ -44,10 +44,22 @@
 ### EfficientDet 结构
 ![avatar](Pictures/EfficientDet.png)
 - backbone采用ImageNet预训练的EfficientNets
+
 - feature network特征网络采用提出的BiFPN。
 BiFPN使用了backbone的3到7层作为输入，并且重复使用自底向上、自顶向下的双向特征融合。
+
 - 经过BiFPN融合的特征输入给最后的分类预测网络，分类预测网络的权重共享。
 
+### 复合缩放
+**针对目标检测提出一种新的复合缩放方法：
+使用复合系数ф来统一缩放backbone、BiFPN、class/box以及分辨的所有维度。**
+- backbone network：我们对EfficientNet-B0到B6使用相同的宽度/深度缩放系数，这样我们就可以使用他们的ImageNet的预训练模型
+
+- BiFPN network：BiFPN的宽度Width（也就是通道数）以指数增长的方式增加，深度Depth以线性方式来增加
+![avatar](Pictures/BiFPN_compound_equation.png)
+
+- Box/Class prediction network：固定宽度Width和BiFPN相同，深度Depth以线性方式增加
+![avatar](Pictures/boxclass_equation.png)
 
 
 
